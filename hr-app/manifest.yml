@@ -1,0 +1,11 @@
+---
+applications:
+- name: jig-hr-app
+  memory: 1024M
+  instances: 1
+  host: demohrapp
+  domain: cfapps.io
+  env: {
+    }
+  services: {
+    }

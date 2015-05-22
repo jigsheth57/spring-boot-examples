@@ -1,0 +1,62 @@
+<div ng-controller="EditEmployeeEntryController">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-10">
+				<h2>Employee Details</h2>
+				<div>
+					<a href="#/web/employees">Back to Employee List</a>
+				</div>
+				<hr/>
+			</div>
+		</div>
+		<div class="row" ng-show="message">
+			<div class="col-md-10">
+				<div class="alert alert-info" role="alert">{{message}}</div>
+			</div>
+		</div>
+		<div class="row" ng-show="error">
+			<div class="col-md-10">
+				<div class="alert alert-danger" role="alert">{{error}}</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-10">
+				<!-- Display the time entry detail form -->
+				<form>
+					<div class="form-group">
+						<label for="employeeId">ID:</label>
+						<input type="text" id="employeeId" class="form-control" ng-model="employee.employeeId" value="{{employee._links.self.href.substr(employee._links.self.href.lastIndexOf('/')+1)}}" readonly="true"/>
+					</div>
+					<div class="form-group">
+						<label for="name">Name:</label>
+						<input type="text" id="name" class="form-control" ng-model="employee.name" value="{{employee.name}}" placeholder="Employee Full Name" required="true"/>
+					</div>
+					<div class="form-group">
+						<label for="hireDate">Hire date:</label>
+						<input type="text" id="hireDate" class="form-control" ng-model="employee.hireDate" value="{{employee.hireDate}}" placeholder="YYYY-MM-DD" required="true"/>
+					</div>
+					<div class="form-group">
+						<label for="salary">Salary:</label>
+						<input type="number" id="salary" class="form-control" ng-model="employee.salary" value="{{employee.salary}}" placeholder="0.0" required="true"/>
+					</div>
+					<div class="form-group" ng-init="employee.isFullTime={};employee.isFullTime=false">
+						<label for="isFullTime">Full-time:</label>
+						<input type="checkbox" id="isFullTime" class="form-control" ng-model="employee.isFullTime" value="{{employee.isFullTime}}" required="true"/>
+					</div>
+					<div class="form-group">
+						<label for="vacationDays">Vacation days:</label>
+						<input type="number" id="vacationDays" class="form-control" ng-model="employee.vacationDays" value="{{employee.vacationDays}}" required="true"/>
+					</div>
+					<div class="form-group">
+						<label for="comments">Comments:</label>
+						<input type="text" id="comments" class="form-control" ng-model="employee.comments" value="{{employee.comments}}" required="true"/>
+					</div>
+					<div class="well">
+						<input type="submit" ng-click="update(employee)" class="btn btn-primary" value="Save"/>
+						<input type="button" ng-click="reset()" class="btn btn-warning" value="Reset"/>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>

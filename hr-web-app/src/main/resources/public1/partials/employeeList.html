@@ -1,0 +1,52 @@
+<div ng-controller="EmployeeListController">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-10">
+				<h2>All Corporate Employees</h2>
+				<hr/>
+			</div>
+		</div>
+		<div class="row" ng-show="message">
+			<div class="col-md-10">
+				<div class="alert alert-info" role="alert">{{message}}</div>
+			</div>
+		</div>
+		<div class="row" ng-show="error">
+			<div class="col-md-10">
+				<div class="alert alert-danger" role="alert">{{error}}</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-10">
+				<table class="table table-striped">
+					<thead>
+						<tr>
+							<th>Name</th>
+							<th>Hire date</th>
+							<th>Full-time</th>
+						</tr>
+					</thead>
+					<tbody>
+						<!-- Display each entry in a row -->
+						<tr ng-repeat="employee in employees">
+							<td>{{employee.name}}</td>
+							<td>{{employee.hireDate}}</td>
+							<td>{{employee.isFullTime}}</td>
+							<td>
+								<a href="/employees/{{employee.employeeId}}" class="btn btn-primary btn-sm">Edit</a>
+								<input type="button" ng-click="delete(employee.employeeId)" class="btn btn-danger btn-sm" value="Delete"/>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-10">
+				<div class="well">
+					<a href="/employees/" class="btn btn-success">New Employee</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

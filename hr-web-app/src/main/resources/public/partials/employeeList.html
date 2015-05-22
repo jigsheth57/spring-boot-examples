@@ -1,0 +1,52 @@
+<div ng-controller="EmployeeListController">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-10">
+				<h2>All Corporate Employees</h2>
+				<hr/>			
+			</div>
+		</div>
+		<div class="row" ng-show="message">
+			<div class="col-md-10">
+				<div class="alert alert-info" role="alert">{{message}}</div>
+			</div>
+		</div>
+		<div class="row" ng-show="error">
+			<div class="col-md-10">
+				<div class="alert alert-danger" role="alert">{{error}}</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-10">
+				<table class="table table-striped">
+					<thead>
+						<tr>
+							<th>Name</th>
+							<th>Hire date</th>
+							<th>Full-time</th>
+						</tr>
+					</thead>
+					<tbody>
+						<!-- Display each entry in a row -->
+						<tr ng-repeat="employee in employees">
+							<td><a ng-click="findByName(employee.name)">{{employee.name}}</a></td>
+							<td><a ng-click="findByHireDate(employee.hireDate)">{{employee.hireDate}}</a></td>
+							<td><a ng-click="findByIsFullTime(employee.isFullTime)">{{employee.isFullTime}}</a></td>
+							<td>
+								<a href="#/web/employees/{{employee._links.self.href.substr(employee._links.self.href.lastIndexOf('/')+1)}}"><img src="/images/edit.png" style="height:16px; width:16px;" alt="Edit"/></a>
+								<a ng-click="delete(employee._links.self.href.substr(employee._links.self.href.lastIndexOf('/')+1))"><img src="/images/delete.png" style="height:16px; width:16px;" alt="Delete"/></a>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-10">
+				<div class="well">
+					<a href="#/web/employees/new" class="btn btn-success">New employee</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

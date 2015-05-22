@@ -1,0 +1,5 @@
+io/pivotal/example/hrapp/domain/Employee.class
+io/pivotal/example/hrapp/RabbitConfig.class
+io/pivotal/example/hrapp/repository/EmployeeRepository.class
+io/pivotal/example/hrapp/domain/listener/EmployeeListener.class
+io/pivotal/example/hrapp/HRApplication.class
